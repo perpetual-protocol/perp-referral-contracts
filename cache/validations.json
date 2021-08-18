@@ -387,6 +387,251 @@
       "PerpetualProtocolReferrer": {
         "src": "contracts/PerpetualProtocolReferrer.sol:6",
         "version": {
+          "withMetadata": "51b28f2cb3afd1d3de0fdfa1a9f9d4c92ae631d1094689ad670aa2e04ab31a67",
+          "withoutMetadata": "51b28f2cb3afd1d3de0fdfa1a9f9d4c92ae631d1094689ad670aa2e04ab31a67",
+          "linkedWithoutMetadata": "51b28f2cb3afd1d3de0fdfa1a9f9d4c92ae631d1094689ad670aa2e04ab31a67"
+        },
+        "inherit": [
+          "PerpFiOwnableUpgrade",
+          "ContextUpgradeSafe",
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [
+          "()",
+          "createReferralCode(address,string)",
+          "getReferralCodeByReferrerAddress(address)",
+          "getMyRefereeCode()",
+          "setReferralCode(string)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "PerpetualProtocolReferrer",
+            "src": "contracts/PerpetualProtocolReferrer.sol:40"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "contract": "PerpetualProtocolReferrer",
+              "label": "referrerStore",
+              "type": "t_mapping(t_address,t_struct(Referrer)322_storage)",
+              "src": "contracts/PerpetualProtocolReferrer.sol:36"
+            },
+            {
+              "contract": "PerpetualProtocolReferrer",
+              "label": "refereeStore",
+              "type": "t_mapping(t_address,t_struct(Referee)329_storage)",
+              "src": "contracts/PerpetualProtocolReferrer.sol:37"
+            },
+            {
+              "contract": "PerpetualProtocolReferrer",
+              "label": "referralCodeToReferrerMap",
+              "type": "t_mapping(t_string_memory_ptr,t_address)",
+              "src": "contracts/PerpetualProtocolReferrer.sol:38"
+            }
+          ],
+          "types": {
+            "t_mapping(t_address,t_struct(Referrer)322_storage)": {
+              "label": "mapping(address => struct PerpetualProtocolReferrer.Referrer)"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_struct(Referrer)322_storage": {
+              "label": "struct PerpetualProtocolReferrer.Referrer",
+              "members": [
+                {
+                  "label": "createdAt",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "referralCode",
+                  "type": "t_string_storage"
+                },
+                {
+                  "label": "createdBy",
+                  "type": "t_address"
+                }
+              ]
+            },
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_string_storage": {
+              "label": "string"
+            },
+            "t_mapping(t_address,t_struct(Referee)329_storage)": {
+              "label": "mapping(address => struct PerpetualProtocolReferrer.Referee)"
+            },
+            "t_struct(Referee)329_storage": {
+              "label": "struct PerpetualProtocolReferrer.Referee",
+              "members": [
+                {
+                  "label": "referralCode",
+                  "type": "t_string_storage"
+                },
+                {
+                  "label": "createdAt",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "updatedAt",
+                  "type": "t_uint256"
+                }
+              ]
+            },
+            "t_mapping(t_string_memory_ptr,t_address)": {
+              "label": "mapping(string => address)"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      }
+    },
+    {
+      "ContextUpgradeSafe": {
+        "src": "@openzeppelin/contracts-ethereum-package/contracts/GSN/Context.sol:14",
+        "version": {
+          "withMetadata": "c527b980ce947b82b3d2f71c0b198c736656fb399ad221066a8d617cf8d5af59",
+          "withoutMetadata": "ac0db523ddc3e330f735df7b3b0b24460531c71290a891170e840f8f67d5ff6b",
+          "linkedWithoutMetadata": "ac0db523ddc3e330f735df7b3b0b24460531c71290a891170e840f8f67d5ff6b"
+        },
+        "inherit": [
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "ContextUpgradeSafe",
+              "label": "__gap",
+              "type": "t_array(t_uint256)50_storage",
+              "src": "@openzeppelin/contracts-ethereum-package/contracts/GSN/Context.sol:37"
+            }
+          ],
+          "types": {
+            "t_array(t_uint256)50_storage": {
+              "label": "uint256[50]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "Initializable": {
+        "src": "@openzeppelin/contracts-ethereum-package/contracts/Initializable.sol:16",
+        "version": {
+          "withMetadata": "dd5619dfa1b39a3703db2c5387c38034012ddfa3e1a91fe0565b3d026de39b44",
+          "withoutMetadata": "ac0db523ddc3e330f735df7b3b0b24460531c71290a891170e840f8f67d5ff6b",
+          "linkedWithoutMetadata": "ac0db523ddc3e330f735df7b3b0b24460531c71290a891170e840f8f67d5ff6b"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Initializable",
+              "label": "initialized",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-ethereum-package/contracts/Initializable.sol:21"
+            },
+            {
+              "contract": "Initializable",
+              "label": "initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-ethereum-package/contracts/Initializable.sol:26"
+            },
+            {
+              "contract": "Initializable",
+              "label": "______gap",
+              "type": "t_array(t_uint256)50_storage",
+              "src": "@openzeppelin/contracts-ethereum-package/contracts/Initializable.sol:61"
+            }
+          ],
+          "types": {
+            "t_bool": {
+              "label": "bool"
+            },
+            "t_array(t_uint256)50_storage": {
+              "label": "uint256[50]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "PerpFiOwnableUpgrade": {
+        "src": "contracts/PerpFiOwnableUpgrade.sol:19",
+        "version": {
+          "withMetadata": "b45d98edc090ee57fca3163f5fc667dcd0828f14d1873faea7cc8e81f489f46a",
+          "withoutMetadata": "0b01678136ac7a32e5bc6c42e10223e52ea049d949c839d698e5a288d303f268",
+          "linkedWithoutMetadata": "0b01678136ac7a32e5bc6c42e10223e52ea049d949c839d698e5a288d303f268"
+        },
+        "inherit": [
+          "ContextUpgradeSafe",
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "candidate()",
+          "renounceOwnership()",
+          "setOwner(address)",
+          "updateOwner()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "PerpFiOwnableUpgrade",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "contracts/PerpFiOwnableUpgrade.sol:20"
+            },
+            {
+              "contract": "PerpFiOwnableUpgrade",
+              "label": "_candidate",
+              "type": "t_address",
+              "src": "contracts/PerpFiOwnableUpgrade.sol:21"
+            },
+            {
+              "contract": "PerpFiOwnableUpgrade",
+              "label": "__gap",
+              "type": "t_array(t_uint256)50_storage",
+              "src": "contracts/PerpFiOwnableUpgrade.sol:95"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address"
+            },
+            "t_array(t_uint256)50_storage": {
+              "label": "uint256[50]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "PerpetualProtocolReferrer": {
+        "src": "contracts/PerpetualProtocolReferrer.sol:6",
+        "version": {
           "withMetadata": "b68d48e46fd046ff9d926bf3512cad65c64bdb3ed64352e0e2b9a0941e05f2be",
           "withoutMetadata": "b68d48e46fd046ff9d926bf3512cad65c64bdb3ed64352e0e2b9a0941e05f2be",
           "linkedWithoutMetadata": "b68d48e46fd046ff9d926bf3512cad65c64bdb3ed64352e0e2b9a0941e05f2be"

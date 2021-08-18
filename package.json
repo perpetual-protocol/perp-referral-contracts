@@ -32,6 +32,6 @@
     "@nomiclabs/hardhat-etherscan": "^2.1.4",
     "@openzeppelin/hardhat-upgrades": "^1.9.0",
     "ethers": "^5.2.0",
-    "hardhat": "^2.3.0"
+    "hardhat": "^2.6.0"
   }
 }
