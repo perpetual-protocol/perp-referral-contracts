@@ -1,10 +1,5 @@
 [
   {
-    "inputs": [],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  },
-  {
     "anonymous": false,
     "inputs": [
       {
@@ -76,6 +71,38 @@
     "anonymous": false,
     "inputs": [
       {
+        "indexed": false,
+        "internalType": "address",
+        "name": "addr",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "tier",
+        "type": "string"
+      }
+    ],
+    "name": "OnUncappedPartnerAssigned",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "addr",
+        "type": "address"
+      }
+    ],
+    "name": "OnUncappedPartnerRemoved",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
         "indexed": true,
         "internalType": "address",
         "name": "previousOwner",
@@ -92,6 +119,78 @@
     "type": "event"
   },
   {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "partnerAddresses",
+        "type": "address[]"
+      },
+      {
+        "internalType": "string[]",
+        "name": "tiers",
+        "type": "string[]"
+      }
+    ],
+    "name": "_batchUpdateUncappedPartner",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "partnerAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "referralCode",
+        "type": "string"
+      },
+      {
+        "internalType": "address[]",
+        "name": "tradersToImport",
+        "type": "address[]"
+      }
+    ],
+    "name": "_importPartner",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "partnerAddress",
+        "type": "address"
+      }
+    ],
+    "name": "_removeUncappedPartner",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "partnerAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "tier",
+        "type": "string"
+      }
+    ],
+    "name": "_upsertUncappedPartner",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "candidate",
     "outputs": [
@@ -106,11 +205,6 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "createdFor",
-        "type": "address"
-      },
       {
         "internalType": "string",
         "name": "referralCode",
@@ -139,11 +233,11 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "referralOwner",
+        "name": "partnerAddress",
         "type": "address"
       }
     ],
-    "name": "getReferralCodeByReferrerAddress",
+    "name": "getReferralCodeByPartnerAddress",
     "outputs": [
       {
         "internalType": "string",
@@ -152,6 +246,13 @@
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "init",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -175,55 +276,7 @@
         "type": "address"
       }
     ],
-    "name": "refereeStore",
-    "outputs": [
-      {
-        "internalType": "string",
-        "name": "referralCode",
-        "type": "string"
-      },
-      {
-        "internalType": "uint256",
-        "name": "createdAt",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "updatedAt",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-      }
-    ],
-    "name": "referralCodeToReferrerMap",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "name": "referrerStore",
+    "name": "partners",
     "outputs": [
       {
         "internalType": "uint256",
@@ -238,6 +291,25 @@
       {
         "internalType": "address",
         "name": "createdBy",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "name": "referralCodeToPartnerMap",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
         "type": "address"
       }
     ],
@@ -275,6 +347,54 @@
     "name": "setReferralCode",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "traders",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "referralCode",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "createdAt",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "updatedAt",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "uncappedPartners",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
