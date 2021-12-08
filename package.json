@@ -12,6 +12,8 @@
     "upgrade:rinkarb": "npx hardhat compile && npx hardhat run --network rinkarb scripts/upgrade.js",
     "deploy:xdai": "npx hardhat compile && npx hardhat run --network xdai scripts/deploy.js",
     "upgrade:xdai": "npx hardhat compile && npx hardhat run --network xdai scripts/upgrade.js",
+    "deploy:optimism": "npx hardhat compile && npx hardhat run --network optimism scripts/deploy.js",
+    "upgrade:optimism": "npx hardhat compile && npx hardhat run --network optimism scripts/upgrade.js",
     "compile": "npx hardhat compile",
     "dev": "npx hardhat run --network localhost scripts/index.js",
     "stagingdev": "npx hardhat run --network rinkarb scripts/staging_index.js",
