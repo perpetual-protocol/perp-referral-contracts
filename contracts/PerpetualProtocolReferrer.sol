@@ -116,11 +116,11 @@ contract PerpetualProtocolReferrer is SafeOwnable {
         return (trader.referralCode);
     }
 
-    function getMyRefereeCodeByTraderAddress(address traderAddress) public view returns (string memory) {
+    function getRefereeCodeByTraderAddress(address traderAddress) public view returns (string memory) {
         Trader memory trader = traders[traderAddress];
         require(
             bytes(trader.referralCode).length > 0,
-            "You do not have a referral code"
+            "Trader dosen't have a referral code"
         );
         return (trader.referralCode);
     }
