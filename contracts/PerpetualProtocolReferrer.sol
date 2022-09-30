@@ -120,7 +120,7 @@ contract PerpetualProtocolReferrer is SafeOwnable {
         Trader memory trader = traders[traderAddress];
         require(
             bytes(trader.referralCode).length > 0,
-            "Trader dosen't have a referral code"
+            "Trader doesn't have a referral code"
         );
         return (trader.referralCode);
     }
