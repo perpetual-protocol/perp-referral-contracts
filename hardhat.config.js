@@ -2,6 +2,7 @@ require('@nomiclabs/hardhat-ethers');
 require('@openzeppelin/hardhat-upgrades');
 require("@nomiclabs/hardhat-etherscan");
 require('hardhat-abi-exporter');
+require("@nomiclabs/hardhat-etherscan");
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
@@ -19,11 +20,12 @@ module.exports = {
       url: 'https://kovan.optimism.io',
     },
     optimism: {
-      url: 'https://mainnet.optimism.io'
+      url: 'https://mainnet.optimism.io',
+      accounts: [process.env.PK]
     },
   },
   etherscan: {
-    apiKey: "XHVB91EIPX3BP4SJ7K6XDBZ1C8IVYGB4VD"
+    apiKey: process.env.ETHERSCAN_API_KEY
   },
   solidity: "0.7.6",
   abiExporter: {
