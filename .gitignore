@@ -1,6 +1,4 @@
 node_modules
 hardhat.config.js
-.openzeppelin
-artifacts
 cache
 PK.js
